@@ -1,2 +1,5 @@
-# Auto-Update-Without-Alerts
-Wordpress Plugin
+Auto Update Without Alerts
+
+
+WordPress Plugin that give you settings to enable auto core, theme, and plugin updates. You can also turn off email alerts for these updates.
+

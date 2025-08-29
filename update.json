@@ -1,0 +1,16 @@
+{
+  "name": "Auto Updates Without Alerts",
+  "slug": "auto-update-without-alerts",
+  "version": "1.4.2",
+  "download_url": "https://github.com/scsiwuzzy56/Auto-Update-Without-Alerts/archive/refs/tags/1.4.2.zip",
+  "homepage": "https://github.com/scsiwuzzy56/Auto-Update-Without-Alerts",
+  "requires": "5.0",
+  "tested": "6.6",
+  "last_updated": "2025-08-29 17:00:00",
+  "sections": {
+    "description": "A plugin to disable auto update emails and enable automatic updates for core, plugins, and themes.",
+    "changelog": "<ul><li>1.4.2 – Bugfixes and improvements</li><li>1.3.0 – Initial release</li></ul>"
+  },
+  "author": "scsiwuzzy56",
+  "author_homepage": "https://github.com/scsiwuzzy56"
+}

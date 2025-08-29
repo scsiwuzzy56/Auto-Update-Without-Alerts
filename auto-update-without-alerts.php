@@ -2,7 +2,7 @@
 /*
 Plugin Name: Auto Updates Without Alerts
 Description: A plugin to disable all auto update email alerts for WordPress, enable automatic core updates, and enable automatic updates for all plugins and themes.
-Version: 1.4.0
+Version: 1.4.1
 Author: scsiwuzzy56
 Author URI: https://github.com/scsiwuzzy56
 */

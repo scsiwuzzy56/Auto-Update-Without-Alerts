@@ -118,13 +118,14 @@ if ( file_exists( $update_checker_path ) ) {
     require_once $update_checker_path;
 }
 
-if ( class_exists( 'Puc_v4_Factory' ) ) {
-    $updateChecker = Puc_v4_Factory::buildUpdateChecker(
-        'https://github.com/scsiwuzzy56/auto-update-without-alerts', // GitHub repo URL
-        __FILE__,                                                     // Plugin file
-        'auto-update-without-alerts'                                 // Plugin slug
-    );
-    $updateChecker->setBranch('main');
-} else {
-    error_log('Plugin Update Checker class not loaded.');
+$update_checker_path = plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
+
+if ( file_exists( $update_checker_path ) ) {
+    require_once $update_checker_path;
 }
+
+$updateChecker = Puc_v4_Factory::buildUpdateChecker(
+    'https://raw.githubusercontent.com/scsiwuzzy56/auto-update-without-alerts/main/update.json',
+    __FILE__,
+    'auto-update-without-alerts'
+);

@@ -109,18 +109,13 @@ function dauae_apply_settings() {
     }
 }
 
-if ( ! class_exists( 'Puc_v4_Factory' ) ) {
-    require plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
+// ---------------------
+// GitHub Update Checker
+// ---------------------
+$update_checker_path = plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
+
+if ( file_exists( $update_checker_path ) ) {
+    require $update_checker_path;
+} else {
+    error_log('Plugin Update Checker not found at: ' . $update_checker_path);
 }
-
-$updateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/scsiwuzzy56/auto-updates-without-alerts/', // GitHub repo URL
-    __FILE__,                                                      // Plugin file
-    'auto-updates-without-alerts'                                  // Plugin slug
-);
-
-// Optional: if your repo is private, add auth token like this:
-// $updateChecker->setAuthentication('your-personal-access-token');
-
-// Optional: set branch
-$updateChecker->setBranch('main');

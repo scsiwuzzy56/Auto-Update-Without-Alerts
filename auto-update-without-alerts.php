@@ -109,6 +109,7 @@ function dauae_apply_settings() {
     }
 }
 
+
 // ---------------------
 // GitHub Update Checker
 // ---------------------
@@ -118,14 +119,13 @@ if ( file_exists( $update_checker_path ) ) {
     require_once $update_checker_path;
 }
 
-$update_checker_path = plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
-
-if ( file_exists( $update_checker_path ) ) {
-    require_once $update_checker_path;
+if ( class_exists( 'Puc_v4_Factory' ) ) {
+    $updateChecker = Puc_v4_Factory::buildUpdateChecker(
+        'https://raw.githubusercontent.com/scsiwuzzy56/Auto-Update-Without-Alerts/main/update.json',
+        __FILE__,
+        'auto-update-without-alerts'
+    );
+} else {
+    error_log('Plugin Update Checker class not loaded.');
 }
 
-$updateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://raw.githubusercontent.com/scsiwuzzy56/auto-update-without-alerts/main/update.json',
-    __FILE__,
-    'auto-update-without-alerts'
-);

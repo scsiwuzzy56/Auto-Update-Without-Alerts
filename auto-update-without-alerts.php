@@ -2,7 +2,7 @@
 /*
 Plugin Name: Auto Updates Without Alerts
 Description: A plugin to disable all auto update email alerts for WordPress, enable automatic core updates, and enable automatic updates for all plugins and themes.
-Version: 1.4.1
+Version: 1.4.2
 Author: scsiwuzzy56
 Author URI: https://github.com/scsiwuzzy56
 */
@@ -115,7 +115,16 @@ function dauae_apply_settings() {
 $update_checker_path = plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
 
 if ( file_exists( $update_checker_path ) ) {
-    require $update_checker_path;
+    require_once $update_checker_path;
+}
+
+if ( class_exists( 'Puc_v4_Factory' ) ) {
+    $updateChecker = Puc_v4_Factory::buildUpdateChecker(
+        'https://github.com/scsiwuzzy56/auto-update-without-alerts', // GitHub repo URL
+        __FILE__,                                                     // Plugin file
+        'auto-update-without-alerts'                                 // Plugin slug
+    );
+    $updateChecker->setBranch('main');
 } else {
-    error_log('Plugin Update Checker not found at: ' . $update_checker_path);
+    error_log('Plugin Update Checker class not loaded.');
 }
